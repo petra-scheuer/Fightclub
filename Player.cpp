@@ -72,3 +72,15 @@ Player::Player() {
     setLifepoints(100); // Beispielwert
     setStrength(10); // Beispielwert
 }
+
+    std::string Player::showSpielfiguren() const {
+        std::string spielfigurenListe;
+        for (const auto& figur : spielfiguren) {
+            if (!spielfigurenListe.empty()) {
+                spielfigurenListe += ", "; // Trennzeichen hinzufügen, wenn nicht der erste Eintrag
+            }
+            spielfigurenListe += figur.getName(); // Name der Spielfigur hinzufügen
+        }
+        return spielfigurenListe;
+    }
+

@@ -20,6 +20,7 @@ public:
     std::string getTyp();
     void setTyp(std::string typ);
     void chooseSpielfigur();
+    std::string showSpielfiguren() const;
     Player(const std::string& name, const std::string& typ) {
         setName(name);
         setTyp(typ);

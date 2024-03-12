@@ -9,6 +9,7 @@
 #include <cstdlib> //Für rand()
 #include <ctime> // Für time()
 #include "Charakter.h"
+#include "Player.h"
 #include "Spielfiguren.h"
 
 
@@ -24,6 +25,10 @@ public:
     std::string getTyp();
     void assignSpielfigur();
     void showSpielfigur();
+    void useHealingItem();
+    void attackPlayer(Player& spieler);
+    void chooseAction(Player& spieler);
+
 
 };
 

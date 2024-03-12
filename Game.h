@@ -20,7 +20,6 @@ private:
 public:
 
     void startGame();
-    void gameLoop();
     void Statistics();
 
 };

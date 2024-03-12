@@ -28,6 +28,9 @@ public:
     std::string getName() const;
     std::string getItem() const;
     std::string getTyp() const;
+    int getDamage() const;
+    int getHealing() const;
+
 };
 
 

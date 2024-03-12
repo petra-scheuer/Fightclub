@@ -26,6 +26,14 @@ std::string Spielfigur::getItem() const {
 std::string Spielfigur::getTyp() const {
     return typ_;
 }
+int Spielfigur::getDamage() const {
+    return damage_;
+}
+
+int Spielfigur::getHealing() const {
+    return healing_;
+}
+
 
 std::vector<Spielfigur> Spielfigur::erstelleVerfuegbareSpielfiguren() {
     return {

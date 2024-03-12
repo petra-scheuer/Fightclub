@@ -44,7 +44,7 @@ void Enemy::assignSpielfigur() {
 }
 void Enemy::showSpielfigur() {
     int count;
-    std::cout << "Dein Gegner ist" << getName()<<". Er trainiert ein "<<getTyp()<<" Team. Hier sind seine Spielfiguren: "<<std::endl;
+    std::cout << "Dein Gegner ist " << getName()<<". Er trainiert ein "<<getTyp()<<" Team. Hier sind seine Spielfiguren: "<<std::endl;
 
     for(const auto& figur : this->spielfiguren) {
         std::cout << "- " << figur.getName() << " (" << figur.getTyp() << ")";
@@ -58,4 +58,51 @@ void Enemy::showSpielfigur() {
         std::cout << std::endl;
     }
     std::cout<<std::endl;
+}
+void Enemy::chooseAction(Player& spieler) {
+    if (spielfiguren.empty()) {
+        std::cout << "Keine Spielfiguren vorhanden, Aktion nicht möglich." << std::endl;
+        return; // Beende die Methode frühzeitig, wenn keine Spielfiguren vorhanden sind
+    }
+    if (this->getLifepoints() < 30) { // Wenn Lebenspunkte unter 30%, versuche zu heilen
+        std::cout<<"Healing"<<std::endl;
+        this->useHealingItem();
+    } else {
+        std::cout<<"Attack"<<std::endl;
+        this->attackPlayer(spieler);
+    }
+}
+
+void Enemy::useHealingItem() {
+    for (auto& figur : spielfiguren) {
+        if (figur.getHealing() > 0) {
+            // Heile den Gegner mit den Heilungspunkten des Items
+            int currentLife = this->getLifepoints();
+            this->setLifepoints(currentLife + figur.getHealing());
+            std::cout << "Gegner heilt sich mit " << figur.getName() << " um " << figur.getHealing() << " Punkte." << std::endl;
+            break; // Breche die Schleife ab, nachdem das erste Heilungs-Item gefunden wurde
+        }
+    }
+}
+
+void Enemy::attackPlayer(Player& spieler) {
+    if (spielfiguren.empty()) {
+        std::cout << "Keine Spielfiguren vorhanden, Angriff nicht möglich." << std::endl;
+        return;
+    }
+
+    // Zufällige Spielfigur auswählen
+    int index = rand() % spielfiguren.size();
+    Spielfigur& ausgewaehlteFigur = spielfiguren[index];
+
+    // Schadenswert ermitteln
+    int damage = ausgewaehlteFigur.getDamage();
+
+    // Lebenspunkte des Spielers reduzieren
+    int spielerLife = spieler.getLifepoints() - damage;
+    spieler.setLifepoints(spielerLife);
+
+    // Ausgabe des Angriffs
+    std::cout << "Gegner greift an mit " << ausgewaehlteFigur.getName()
+              << " und verursacht " << damage << " Schaden." << std::endl;
 }
