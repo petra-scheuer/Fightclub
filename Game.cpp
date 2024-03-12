@@ -36,6 +36,8 @@ void Game::startGame() {
     Enemy gegner;
     gegner.assignSpielfigur();
     gegner.showSpielfigur();
+    std::cout << std::endl;
+
 
     std::string input;
         while(67){
@@ -47,9 +49,11 @@ void Game::startGame() {
             std::cout<< "Team von "<<spieler.getName()<<": "<<spieler.showSpielfiguren()<<std::endl;
             std::cout << "Gegner: " << gegner.getName() << " - Health: " << gegner.getLifepoints() << ", Strength: " << gegner.getStrength() << std::endl;
             gegner.chooseAction(spieler);
+            std::cout << "Wähle die Figur die als nächstes dran ist - hier die Auswahl: "<< std::endl;
+            spieler.showDetail();
             std::cin >> input;
         }
-};
+}
 
 void Game::Statistics(){
     std::cout<<"ENDGAME"<<std::endl;

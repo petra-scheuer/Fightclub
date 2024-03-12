@@ -38,24 +38,24 @@ int Spielfigur::getHealing() const {
 std::vector<Spielfigur> Spielfigur::erstelleVerfuegbareSpielfiguren() {
     return {
             // Wasser
-            Spielfigur("Squirtle", "Wasserball", "Wasser",15,0 ),
+            Spielfigur("Squirtle", "Wasserball", "Wasser",15,5 ),
             Spielfigur("Psyduck", "Kopfschmerz", "Wasser", 10,5),
-            Spielfigur("Poliwag", "Hypnose", "Wasser",0,20),
-            Spielfigur("Vaporeon", "Hydropumpe", "Wasser",20,0),
+            Spielfigur("Poliwag", "Hypnose", "Wasser",5,20),
+            Spielfigur("Vaporeon", "Hydropumpe", "Wasser",20,5),
             // Feuer
-            Spielfigur("Charmander", "Flammenwurf", "Feuer",20,0),
-            Spielfigur("Vulpix", "Feuerfeger", "Feuer",15,0),
-            Spielfigur("Growlithe", "Glut", "Feuer",0,20),
+            Spielfigur("Charmander", "Flammenwurf", "Feuer",20,5),
+            Spielfigur("Vulpix", "Feuerfeger", "Feuer",15,10),
+            Spielfigur("Growlithe", "Glut", "Feuer",5,20),
             Spielfigur("Ponyta", "Feuersturm", "Feuer",10,10),
             // Luft
-            Spielfigur("Pidgey", "Wirbelwind", "Luft",0,10),
-            Spielfigur("Spearow", "Luftschnitt", "Luft",15,0),
-            Spielfigur("Zubat", "Superschall", "Luft",20,0),
+            Spielfigur("Pidgey", "Wirbelwind", "Luft",5,15),
+            Spielfigur("Spearow", "Luftschnitt", "Luft",15,5),
+            Spielfigur("Zubat", "Superschall", "Luft",20,-5),
             Spielfigur("Aerodactyl", "Himmelsfeger", "Luft",10,5),
             // Erd-Pokémon
-            Spielfigur("Geodude", "Steinwurf", "Erde",10,0),
+            Spielfigur("Geodude", "Steinwurf", "Erde",10,5),
             Spielfigur("Onix", "Erdbeben", "Erde",20,-5),
-            Spielfigur("Rhyhorn", "Schlammlawine", "Erde",10,0),
-            Spielfigur("Sandshrew", "Sandgrab", "Erde",0,20)
+            Spielfigur("Rhyhorn", "Schlammlawine", "Erde",20,-5),
+            Spielfigur("Sandshrew", "Sandgrab", "Erde",10,20)
     };
 }

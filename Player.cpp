@@ -84,3 +84,14 @@ Player::Player() {
         return spielfigurenListe;
     }
 
+void Player::showDetail() const {
+    for (const auto& figur : spielfiguren) {
+        // Direkte Ausgabe jeder Spielfigur mit ihren Details
+        std::cout << figur.getName()
+                  << " - Attacke: " << figur.getItem()
+                  << ", Damage: " << std::to_string(figur.getDamage())
+                  << ", Health: " << std::to_string(figur.getHealing())
+                  << std::endl;
+    }
+}
+
