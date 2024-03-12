@@ -39,9 +39,19 @@ void Enemy::assignSpielfigur() {
     }
 }
 void Enemy::showSpielfigur() {
-    std::cout << " Spielfiguren von " << getName()<<std::endl;
+    int count;
+    std::cout << "Dein Gegner ist" << getName()<<". Er trainiert ein "<<getTyp()<<" Team. Hier sind seine Spielfiguren: "<<std::endl;
 
-    for(const auto& spielfigur : spielfiguren) {
-        std::cout << "- " << spielfigur.getName() << std::endl;
+    for(const auto& figur : this->spielfiguren) {
+        std::cout << "- " << figur.getName() << " (" << figur.getTyp() << ")";
+        if (++count % 4 == 0) { // Nach jeweils drei Spielfiguren einen Zeilenumbruch hinzufügen
+            std::cout << std::endl;
+        } else {
+            std::cout << "\t"; // Füge einen Tabulator für die Trennung innerhalb der Zeile hinzu
+        }
     }
+    if (count % 3 != 0) { // Füge einen abschließenden Zeilenumbruch hinzu, falls die letzte Zeile nicht vollständig ist
+        std::cout << std::endl;
+    }
+    std::cout<<std::endl;
 }

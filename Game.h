@@ -15,8 +15,11 @@ class Enemy;
 
 
 class Game {
+private:
+    int gametype_;
 public:
     void startGame();
+
 };
 
 

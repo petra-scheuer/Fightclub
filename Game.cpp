@@ -9,6 +9,7 @@
         std::string spielerName;
         std::string spielerTyp;
 
+
         // Spielerinformationen erfragen
         std::cout << "Gib deinen Namen ein: ";
         std::getline(std::cin, spielerName);
@@ -18,13 +19,14 @@
 
         // Spieler initialisieren
         Player spieler(spielerName, spielerTyp);
-        Enemy gegner;
+        std::cout << "Hallo "<<spieler.getName()<<"!. Du bist nun Trainer eines "<<spieler.getTyp()<< " Teams."<<std::endl;
+        spieler.chooseSpielfigur();
 
+
+        Enemy gegner;
         // Spielbeginn
-        std::cout << "Das Spiel beginnt!" << std::endl;
-        std::cout << spieler.getName() << std::endl;
-        std::cout << gegner.getName()<<std::endl;
         gegner.assignSpielfigur();
         gegner.showSpielfigur();
+
         // Hier würde die Spiellogik folgen...
     }
