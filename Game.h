@@ -12,6 +12,7 @@
 #include "Enemy.h"
 
 
+
 class Game {
 private:
     Player spieler;
@@ -21,6 +22,7 @@ public:
 
     void startGame();
     void Statistics();
+
 
 };
 

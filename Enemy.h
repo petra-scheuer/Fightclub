@@ -13,7 +13,7 @@
 #include "Spielfiguren.h"
 
 
-class Enemy : public Charakter {
+class Enemy : public Charakter, public ICombatant {
 private:
     std::string typ_;
     std::vector<Spielfigur> spielfiguren; // Hinzufügen der Liste von Pokémon
@@ -28,7 +28,10 @@ public:
     void useHealingItem();
     void attackPlayer(Player& spieler);
     void chooseAction(Player& spieler);
-
+    void takeDamage(int amount) override;
+    void attack(ICombatant& target) override {
+        std::cout<<"override";
+    }
 
 };
 

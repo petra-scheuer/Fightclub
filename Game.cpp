@@ -44,16 +44,18 @@ void Game::startGame() {
             if(input == "X" || input == "x"){
                 break;
             }
+            if(spieler.getLifepoints()<=0 || gegner.getLifepoints()<=0){
+                break;
+            }
             // Ausgabe der Werte zu Beginn des Durchlaufs
             std::cout << "Spieler: " << spieler.getName() << " - Health: " << spieler.getLifepoints() << ", Strength: " << spieler.getStrength() << std::endl;
-            std::cout<< "Team von "<<spieler.getName()<<": "<<spieler.showSpielfiguren()<<std::endl;
             std::cout << "Gegner: " << gegner.getName() << " - Health: " << gegner.getLifepoints() << ", Strength: " << gegner.getStrength() << std::endl;
+            std::cout<<std::endl;
             gegner.chooseAction(spieler);
-            std::cout << "Wähle die Figur die als nächstes dran ist - hier die Auswahl: "<< std::endl;
-            spieler.showDetail();
-            std::cin >> input;
+            spieler.attack(gegner);
         }
 }
+
 
 void Game::Statistics(){
     std::cout<<"ENDGAME"<<std::endl;

@@ -94,4 +94,32 @@ void Player::showDetail() const {
                   << std::endl;
     }
 }
+void Player::takeDamage(int amount) {
+    // Reduziert die Lebenspunkte des Spielers um den angegebenen Betrag
+    int currentLifePoints = getLifepoints();
+    setLifepoints(currentLifePoints - amount);
+}
+
+
+void Player::attack(ICombatant& target) {
+    std::cout << "Wähle die Spielfigur für den Angriff (Nummer eingeben): " << std::endl;
+    showDetail(); // Zeigt alle verfügbaren Spielfiguren und ihre Fähigkeiten
+
+    int auswahl;
+    std::cin >> auswahl;
+
+    // Überprüfung, ob die Eingabe gültig ist
+    if (auswahl > 0 && auswahl <= spielfiguren.size()) {
+        const Spielfigur& gewaehlteFigur = spielfiguren[auswahl - 1];
+
+        std::cout << "Du greifst mit " << gewaehlteFigur.getName()
+                  << ", die " << gewaehlteFigur.getDamage() << " Schaden verursacht." << std::endl;
+
+        target.takeDamage(gewaehlteFigur.getDamage());
+    } else {
+        std::cout << "Ungültige Auswahl." << std::endl;
+    }
+}
+
+
 

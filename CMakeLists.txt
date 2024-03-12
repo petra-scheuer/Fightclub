@@ -14,4 +14,6 @@ add_executable(FightClub_SCHEUER main.cpp
         Enemy.cpp
         Enemy.h
         Spielfiguren.cpp
-        Spielfiguren.h)
+        Spielfiguren.h
+        ICombatant.cpp
+        ICombatant.h)

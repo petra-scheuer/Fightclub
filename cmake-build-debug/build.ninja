@@ -85,6 +85,12 @@ build CMakeFiles/FightClub_SCHEUER.dir/Spielfiguren.cpp.o: CXX_COMPILER__FightCl
   OBJECT_DIR = CMakeFiles/FightClub_SCHEUER.dir
   OBJECT_FILE_DIR = CMakeFiles/FightClub_SCHEUER.dir
 
+build CMakeFiles/FightClub_SCHEUER.dir/ICombatant.cpp.o: CXX_COMPILER__FightClub_SCHEUER_unscanned_Debug /Users/petrascheuer/Desktop/FightClub_SCHEUER/ICombatant.cpp || cmake_object_order_depends_target_FightClub_SCHEUER
+  DEP_FILE = CMakeFiles/FightClub_SCHEUER.dir/ICombatant.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.0 -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/FightClub_SCHEUER.dir
+  OBJECT_FILE_DIR = CMakeFiles/FightClub_SCHEUER.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target FightClub_SCHEUER
@@ -93,7 +99,7 @@ build CMakeFiles/FightClub_SCHEUER.dir/Spielfiguren.cpp.o: CXX_COMPILER__FightCl
 #############################################
 # Link the executable FightClub_SCHEUER
 
-build FightClub_SCHEUER: CXX_EXECUTABLE_LINKER__FightClub_SCHEUER_Debug CMakeFiles/FightClub_SCHEUER.dir/main.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Game.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Charakter.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Player.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Enemy.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Spielfiguren.cpp.o
+build FightClub_SCHEUER: CXX_EXECUTABLE_LINKER__FightClub_SCHEUER_Debug CMakeFiles/FightClub_SCHEUER.dir/main.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Game.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Charakter.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Player.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Enemy.cpp.o CMakeFiles/FightClub_SCHEUER.dir/Spielfiguren.cpp.o CMakeFiles/FightClub_SCHEUER.dir/ICombatant.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.0
   OBJECT_DIR = CMakeFiles/FightClub_SCHEUER.dir
   POST_BUILD = :

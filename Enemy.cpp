@@ -64,11 +64,7 @@ void Enemy::chooseAction(Player& spieler) {
         std::cout << "Keine Spielfiguren vorhanden, Aktion nicht möglich." << std::endl;
         return; // Beende die Methode frühzeitig, wenn keine Spielfiguren vorhanden sind
     }
-    if (this->getLifepoints() < 30) { // Wenn Lebenspunkte unter 30%, versuche zu heilen
-        std::cout<<"Healing"<<std::endl;
-        this->useHealingItem();
-    } else {
-        std::cout<<"Attack"<<std::endl;
+    else {
         this->attackPlayer(spieler);
     }
 }
@@ -106,3 +102,13 @@ void Enemy::attackPlayer(Player& spieler) {
     std::cout << "Gegner greift an mit " << ausgewaehlteFigur.getName()
               << " und verursacht " << damage << " Schaden." << std::endl;
 }
+void Enemy::takeDamage(int amount)  {
+    int lifepoints= getLifepoints()-amount;
+
+    setLifepoints(lifepoints);
+
+// Optional: Feedback geben, dass der Enemy Schaden erlitten hat
+std::cout << "Enemy nimmt " << amount << " Schaden. Verbleibende Lebenspunkte: " << lifepoints << std::endl;
+
+}
+

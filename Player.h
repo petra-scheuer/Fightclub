@@ -8,9 +8,10 @@
 #include <vector>
 #include "Charakter.h"
 #include "Spielfiguren.h"
+#include "ICombatant.h"
 
 
-class Player: public Charakter {
+class Player: public Charakter, public ICombatant{
 private:
     std::string typ_;
     std::vector<Spielfigur> spielfiguren;
@@ -22,6 +23,8 @@ public:
     void chooseSpielfigur();
     std::string showSpielfiguren() const;
     void showDetail() const;
+    void attack(ICombatant& target) override;
+    void takeDamage(int amount) override;
     Player(const std::string& name, const std::string& typ) {
         setName(name);
         setTyp(typ);
