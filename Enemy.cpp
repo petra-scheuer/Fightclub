@@ -22,6 +22,10 @@ Enemy::Enemy() {
     std::string typen[] = {"Feuer", "Wasser", "Luft", "Erde"};
     int typIndex = rand() % 4; // Erzeugt eine Zufallszahl zwischen 0 und 3
     setTyp(typen[typIndex]);
+
+    setLifepoints(100);
+    setStrength(10);
+
 }
 void Enemy::assignSpielfigur() {
     // Hole alle verfügbaren Spielfiguren

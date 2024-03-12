@@ -2,6 +2,7 @@
 // Created by Petra Scheuer on 11.03.24.
 //
 #include "Player.h"
+
 void Player::setTyp(std::string typ){
     typ_=typ;
 }
@@ -63,4 +64,11 @@ void Player::chooseSpielfigur() {
         std::cout << std::endl;
     }
     std::cout<<std::endl;
+}
+Player::Player() {
+    // Initialwerte setzen
+    setName("Unbekannter Spieler");
+    setTyp("Unbekannt");
+    setLifepoints(100); // Beispielwert
+    setStrength(10); // Beispielwert
 }

@@ -15,6 +15,7 @@ private:
     std::string typ_;
     std::vector<Spielfigur> spielfiguren;
 public:
+    Player();
     //setter und getter
     std::string getTyp();
     void setTyp(std::string typ);

@@ -8,17 +8,20 @@
 #include <iostream>
 #include <string>
 
-#include "Charakter.h"
-
-class Player;
-class Enemy;
+#include "Player.h"
+#include "Enemy.h"
 
 
 class Game {
 private:
+    Player spieler;
+    Enemy gegner;
     int gametype_;
 public:
+
     void startGame();
+    void gameLoop();
+    void Statistics();
 
 };
 
