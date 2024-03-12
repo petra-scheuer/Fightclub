@@ -12,14 +12,22 @@
         // Spielerinformationen erfragen
         std::cout << "Gib deinen Namen ein: ";
         std::getline(std::cin, spielerName);
-        spieler.setName(spielerName); // Setze den Namen des Spieler-Objekts
+        while (spielerName.empty()) {
+            std::cout << "Der Name darf nicht leer sein. Gib bitte deinen Namen ein: ";
+            std::getline(std::cin, spielerName);
+        }
+        spieler.setName(spielerName);
 
         std::cout << "Wähle deinen Typ (Feuer, Wasser, Erde, Luft): ";
         std::getline(std::cin, spielerTyp);
-        spieler.setTyp(spielerTyp); // Setze den Typ des Spieler-Objekts
+        while (spielerTyp != "Feuer" && spielerTyp != "Wasser" && spielerTyp != "Erde" && spielerTyp != "Luft") {
+            std::cout << "Ungültiger Typ. Bitte wähle zwischen Feuer, Wasser, Erde und Luft: ";
+            std::getline(std::cin, spielerTyp);
+        }
+        spieler.setTyp(spielerTyp);
 
         spieler.setLifepoints(100); // Setze Health
-        spieler.setStrength(10); // Setze Strength
+        spieler.setStrength(10); // SSetze Strength
 
         // Spieler initialisieren
         Player spieler(spielerName, spielerTyp);
