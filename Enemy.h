@@ -9,17 +9,22 @@
 #include <cstdlib> //Für rand()
 #include <ctime> // Für time()
 #include "Charakter.h"
+#include "Spielfiguren.h"
 
 
 class Enemy : public Charakter {
 private:
     std::string typ_;
+    std::vector<Spielfigur> spielfiguren; // Hinzufügen der Liste von Pokémon
 public:
     Enemy(); //Konstruktor
 
     //setter und getter
     void setTyp(std::string typ);
     std::string getTyp();
+    void assignSpielfigur();
+    void showSpielfigur();
+
 };
 
 

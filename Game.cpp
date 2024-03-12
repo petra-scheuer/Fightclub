@@ -18,10 +18,13 @@
 
         // Spieler initialisieren
         Player spieler(spielerName, spielerTyp);
+        Enemy gegner;
 
         // Spielbeginn
         std::cout << "Das Spiel beginnt!" << std::endl;
         std::cout << spieler.getName() << std::endl;
-
+        std::cout << gegner.getName()<<std::endl;
+        gegner.assignSpielfigur();
+        gegner.showSpielfigur();
         // Hier würde die Spiellogik folgen...
     }
