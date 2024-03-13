@@ -29,3 +29,13 @@ int Charakter::getWincount(){
 int Charakter::getLosecount() {
     return losecount_;
 }
+void Charakter::incrementWincount(){
+    wincount_++;
+}
+void Charakter::incrementLosecount() {
+    losecount_++;
+}
+void Charakter::initStatistics(){
+    wincount_=0;
+    losecount_=0;
+}

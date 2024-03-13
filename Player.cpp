@@ -95,11 +95,15 @@ void Player::showDetail() const {
     }
 }
 void Player::takeDamage(int amount) {
-    // Reduziert die Lebenspunkte des Spielers um den angegebenen Betrag
-    int currentLifePoints = getLifepoints();
-    setLifepoints(currentLifePoints - amount);
+    int lifepoints= getLifepoints()-amount;
+    if(lifepoints >0){
+        setLifepoints(lifepoints);
+    }
+    else{
+        setLifepoints(0);
+    }
+    std::cout << getName()<<" nimmt " << amount << " Schaden. Verbleibende Lebenspunkte: " << lifepoints << std::endl;
 }
-
 
 void Player::attack(ICombatant& target) {
     std::cout << "Wähle die Spielfigur für den Angriff (Nummer eingeben): " << std::endl;
@@ -115,11 +119,16 @@ void Player::attack(ICombatant& target) {
         std::cout << "Du greifst mit " << gewaehlteFigur.getName()
                   << ", die " << gewaehlteFigur.getDamage() << " Schaden verursacht." << std::endl;
 
-        target.takeDamage(gewaehlteFigur.getDamage());
-        int currentHealth = getLifepoints(); // Annahme: Player hat eine Methode getLifepoints()
-        setLifepoints(currentHealth + gewaehlteFigur.getHealing()); // Heile den Player basierend auf der Heilung der Spielfigur
 
-        std::cout << "Du heilst dich selbst um " << gewaehlteFigur.getHealing() << " Punkte." << std::endl;
+        target.takeDamage(gewaehlteFigur.getDamage());
+        int currentHealth = getLifepoints()+gewaehlteFigur.getHealing(); // Annahme: Player hat eine Methode getLifepoints()
+        if(currentHealth >100){
+            setLifepoints(100);
+        }
+        else{
+            setLifepoints(currentHealth);
+            std::cout << "Du heilst dich selbst um " << gewaehlteFigur.getHealing() << " Punkte." << std::endl;
+        }
     } else {
         std::cout << "Ungültige Auswahl." << std::endl;
     }

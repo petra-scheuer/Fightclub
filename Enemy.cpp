@@ -35,6 +35,7 @@ Enemy::Enemy() {
 
     setLifepoints(100);
     setStrength(10);
+    initStatistics();
 
 }
 void Enemy::assignSpielfigur() {
@@ -73,7 +74,7 @@ void Enemy::useHealingItem() {
             // Heile den Gegner mit den Heilungspunkten des Items
             int currentLife = this->getLifepoints();
             this->setLifepoints(currentLife + figur.getHealing());
-            std::cout << "Gegner heilt sich mit " << figur.getName() << " um " << figur.getHealing() << " Punkte." << std::endl;
+            std::cout << getName()<<" heilt sich mit " << figur.getName() << " um " << figur.getHealing() << " Punkte." << std::endl;
             break; // Breche die Schleife ab, nachdem das erste Heilungs-Item gefunden wurde
         }
     }
@@ -84,19 +85,20 @@ void Enemy::attack(ICombatant& target) {
         std::cerr << "Keine Spielfiguren verfügbar." << std::endl;
         return;
     }
-
     // Verwendung des aktuellen Index, um die Spielfigur auszuwählen
     Spielfigur& ausgewaehlteFigur = spielfiguren[currentIndex];
-
 
     std::cout << getName()<<" greift mit " << ausgewaehlteFigur.getName()
               << " an, die " << ausgewaehlteFigur.getDamage() << " Schaden verursacht." << std::endl;
 
     target.takeDamage(ausgewaehlteFigur.getDamage());
-    int currentHealth = getLifepoints();
-    setLifepoints(currentHealth + ausgewaehlteFigur.getHealing()); // Heile den Enemy basierend auf der Heilung der Spielfigur
+    int currentHealth = getLifepoints()+ausgewaehlteFigur.getHealing();
+    if(currentHealth >100){
+        setLifepoints(100);
+    }
+    else{setLifepoints(currentHealth);}
 
-    std::cout << "Enemy heilt sich selbst um " << ausgewaehlteFigur.getHealing() << " Punkte." << std::endl;
+    std::cout << getName()<<" heilt sich selbst um " << ausgewaehlteFigur.getHealing() << " Punkte." << std::endl;
 
     // Inkrementieren des aktuellen Index für den nächsten Angriff
     currentIndex = (currentIndex + 1) % spielfiguren.size();
@@ -105,9 +107,12 @@ void Enemy::attack(ICombatant& target) {
 
 void Enemy::takeDamage(int amount)  {
     int lifepoints= getLifepoints()-amount;
-
-    setLifepoints(lifepoints);
-
+    if(lifepoints >0){
+        setLifepoints(lifepoints);
+    }
+    else{
+        setLifepoints(0);
+    }
 
     std::cout << getName()<<" nimmt " << amount << " Schaden. Verbleibende Lebenspunkte: " << lifepoints << std::endl;
 }

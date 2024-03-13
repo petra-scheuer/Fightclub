@@ -17,11 +17,15 @@ public:
     void setName(std::string Name);
     void setLifepoints(int lifepoints);
     void setStrength(int strength);
+    void incrementWincount();
+    void incrementLosecount();
     std::string getName();
     int getLifepoints();
     int getStrength();
     int getWincount();
     int getLosecount();
+    void initStatistics();
+
 };
 
 

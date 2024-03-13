@@ -27,7 +27,6 @@ public:
     void assignSpielfigur();
     void showSpielfigur();
     void useHealingItem();
-    void chooseAction(Player& spieler);
     void takeDamage(int amount) override;
     void attack(ICombatant& target) override;
 
