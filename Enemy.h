@@ -17,6 +17,7 @@ class Enemy : public Charakter, public ICombatant {
 private:
     std::string typ_;
     std::vector<Spielfigur> spielfiguren; // Hinzufügen der Liste von Pokémon
+    int currentIndex = 0;
 public:
     Enemy(); //Konstruktor
 

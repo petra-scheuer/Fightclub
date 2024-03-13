@@ -16,12 +16,16 @@
 class Game {
 private:
     Player spieler;
+    Enemy teammate;
     Enemy gegner;
+    Enemy gegner2;
+
     int gametype_;
 public:
 
     void startGame();
     void Statistics();
+    void setGametype(int gametype);
 
 
 };

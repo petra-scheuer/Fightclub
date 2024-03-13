@@ -11,7 +11,7 @@ public:
     virtual ~ICombatant() {}
     virtual void attack(ICombatant& target) = 0;
     virtual void takeDamage(int amount) = 0;
-    // Weitere Methoden können hier definiert werden, je nach Bedarf.
+
 };
 
 
