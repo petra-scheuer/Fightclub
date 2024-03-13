@@ -38,7 +38,6 @@ void Game::startGame() {
     gegner.showSpielfigur();
     std::cout << std::endl;
 
-
     std::string input;
         while(67){
             if(input == "X" || input == "x"){
@@ -51,12 +50,13 @@ void Game::startGame() {
             std::cout << "Spieler: " << spieler.getName() << " - Health: " << spieler.getLifepoints() << ", Strength: " << spieler.getStrength() << std::endl;
             std::cout << "Gegner: " << gegner.getName() << " - Health: " << gegner.getLifepoints() << ", Strength: " << gegner.getStrength() << std::endl;
             std::cout<<std::endl;
-            gegner.chooseAction(spieler);
+            gegner.attack(spieler);
             spieler.attack(gegner);
         }
 }
 
-
 void Game::Statistics(){
     std::cout<<"ENDGAME"<<std::endl;
+    std::cout<<"Wincount Spieler: "<<spieler.getWincount()<<std::endl; std::cout<<"Losecount Spieler: "<<spieler.getLosecount()<<std::endl;
+    std::cout<<"Wincount Gegner: "<<gegner.getWincount()<<std::endl; std::cout<<"Losecount Gegner: "<<gegner.getLosecount()<<std::endl;
 }

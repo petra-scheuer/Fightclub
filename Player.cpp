@@ -116,6 +116,10 @@ void Player::attack(ICombatant& target) {
                   << ", die " << gewaehlteFigur.getDamage() << " Schaden verursacht." << std::endl;
 
         target.takeDamage(gewaehlteFigur.getDamage());
+        int currentHealth = getLifepoints(); // Annahme: Player hat eine Methode getLifepoints()
+        setLifepoints(currentHealth + gewaehlteFigur.getHealing()); // Heile den Player basierend auf der Heilung der Spielfigur
+
+        std::cout << "Du heilst dich selbst um " << gewaehlteFigur.getHealing() << " Punkte." << std::endl;
     } else {
         std::cout << "Ungültige Auswahl." << std::endl;
     }

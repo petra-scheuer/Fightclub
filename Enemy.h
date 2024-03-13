@@ -26,12 +26,9 @@ public:
     void assignSpielfigur();
     void showSpielfigur();
     void useHealingItem();
-    void attackPlayer(Player& spieler);
     void chooseAction(Player& spieler);
     void takeDamage(int amount) override;
-    void attack(ICombatant& target) override {
-        std::cout<<"override";
-    }
+    void attack(ICombatant& target) override;
 
 };
 
